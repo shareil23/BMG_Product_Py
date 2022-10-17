@@ -1,0 +1,1171 @@
+{
+	"info": {
+		"_postman_id": "6771971d-b6d5-4c2b-a24e-6a5e28167dc0",
+		"name": "BMG Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "3628790"
+	},
+	"item": [
+		{
+			"name": "Product Get All Data",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/v1/product/1/10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"1",
+						"10"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Data tidak ditemukan",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/product/1/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"1",
+								"10"
+							]
+						}
+					},
+					"status": "BAD REQUEST",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.23.1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Oct 2022 16:06:01 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "106"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"data\": null,\n    \"message\": \"Data product tidak ditemukan.\",\n    \"totalPage\": 0,\n    \"totalData\": 0\n}"
+				},
+				{
+					"name": "Data ditemukan",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/v1/product/1/10",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"1",
+								"10"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.23.1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Oct 2022 16:08:56 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "191"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"data\": [\n        {\n            \"id\": 1,\n            \"udate_time\": 0,\n            \"product_name\": \"Test Product 1\",\n            \"cdate_time\": 1666022902,\n            \"product_code\": 12345\n        }\n    ],\n    \"message\": \"Success\",\n    \"totalPage\": 1,\n    \"totalData\": 1\n}"
+				}
+			]
+		},
+		{
+			"name": "Insert Product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_name",
+							"value": "Test Product 1",
+							"type": "text"
+						},
+						{
+							"key": "product_code",
+							"value": "12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"product"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Data berhasil di insert",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_name",
+									"value": "Test Product 1",
+									"type": "text"
+								},
+								{
+									"key": "product_code",
+									"value": "12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.23.1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Oct 2022 16:08:22 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "76"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": null,\n    \"message\": \"Product berhasil di input\"\n}"
+				},
+				{
+					"name": "Data product ditemukan",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_name",
+									"value": "Test Product 1",
+									"type": "text"
+								},
+								{
+									"key": "product_code",
+									"value": "12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"status": "BAD REQUEST",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.23.1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Oct 2022 16:08:38 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "104"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"data\": null,\n    \"message\": \"Data product sudah digunakan, coba dengan data lainnya.\"\n}"
+				},
+				{
+					"name": "Validasi Data tidak lengkap",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_name",
+									"value": "Test Product 1",
+									"type": "text"
+								},
+								{
+									"key": "product_code",
+									"value": "12345",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"status": "BAD REQUEST",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.23.1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Oct 2022 16:15:11 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "108"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"data\": null,\n    \"message\": \"Data yang di perlukan tidak lengkap, mohon periksa kembali.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Product Get Detail",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_code",
+							"value": "12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/product/detail",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"product",
+						"detail"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Data tidak ditemukan",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_name",
+									"value": "Test Product 1",
+									"type": "text"
+								},
+								{
+									"key": "product_code",
+									"value": "12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/product/detail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"detail"
+							]
+						}
+					},
+					"status": "BAD REQUEST",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.23.1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Oct 2022 16:06:34 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "104"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"data\": null,\n    \"message\": \"Data product tidak ditemukan, coba dengan data lainnya.\"\n}"
+				},
+				{
+					"name": "Data ditemukan",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_code",
+									"value": "12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/product/detail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"detail"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.23.1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Oct 2022 16:09:50 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "157"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"data\": {\n        \"id\": 1,\n        \"udate_time\": 0,\n        \"product_name\": \"Test Product 1\",\n        \"cdate_time\": 1666022902,\n        \"product_code\": 12345\n    },\n    \"message\": \"Success\"\n}"
+				},
+				{
+					"name": "Data diupdate",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_code",
+									"value": "12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/product/detail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"detail"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.23.1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Oct 2022 16:13:47 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "166"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"data\": {\n        \"cdate_time\": 1666023217,\n        \"id\": 1,\n        \"udate_time\": 1666023222,\n        \"product_name\": \"Test Product 2\",\n        \"product_code\": 12345\n    },\n    \"message\": \"Success\"\n}"
+				},
+				{
+					"name": "Data tidak ditemukan setelah dihapus",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_code",
+									"value": "12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/product/detail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"detail"
+							]
+						}
+					},
+					"status": "BAD REQUEST",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.23.1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Oct 2022 16:14:30 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "104"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"data\": null,\n    \"message\": \"Data product tidak ditemukan, coba dengan data lainnya.\"\n}"
+				},
+				{
+					"name": "Validasi Data tidak lengkap",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_code",
+									"value": "12345",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/product/detail",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"product",
+								"detail"
+							]
+						}
+					},
+					"status": "BAD REQUEST",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.23.1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Oct 2022 16:14:49 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "108"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"data\": null,\n    \"message\": \"Data yang di perlukan tidak lengkap, mohon periksa kembali.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_name",
+							"value": "Test Product 2",
+							"type": "text"
+						},
+						{
+							"key": "product_code",
+							"value": "12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"product"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Data tidak ditemukan",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_name",
+									"value": "Test Product 1",
+									"type": "text"
+								},
+								{
+									"key": "product_code",
+									"value": "12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"status": "BAD REQUEST",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.23.1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Oct 2022 16:06:59 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "104"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"data\": null,\n    \"message\": \"Data product tidak ditemukan, coba dengan data lainnya.\"\n}"
+				},
+				{
+					"name": "Validasi Data tidak lengkap",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_name",
+									"value": "Test Product 2",
+									"type": "text"
+								},
+								{
+									"key": "product_code",
+									"value": "12345",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"status": "BAD REQUEST",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.23.1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Oct 2022 16:15:28 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "108"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"data\": null,\n    \"message\": \"Data yang di perlukan tidak lengkap, mohon periksa kembali.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Delete Product",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "product_code",
+							"value": "12345",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/v1/product",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"product"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Data tidak ditemukan",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_code",
+									"value": "12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"status": "BAD REQUEST",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.23.1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Oct 2022 16:07:30 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "104"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"data\": null,\n    \"message\": \"Data product tidak ditemukan, coba dengan data lainnya.\"\n}"
+				},
+				{
+					"name": "Data dihapus",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_code",
+									"value": "12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.23.1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Oct 2022 16:14:12 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "76"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"success\",\n    \"data\": null,\n    \"message\": \"Product berhasil di hapus\"\n}"
+				},
+				{
+					"name": "Validasi Data tidak lengkap",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "product_code",
+									"value": "12345",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/v1/product",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"v1",
+								"product"
+							]
+						}
+					},
+					"status": "BAD REQUEST",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.23.1"
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 17 Oct 2022 16:15:45 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Content-Length",
+							"value": "108"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept-Encoding"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": \"error\",\n    \"data\": null,\n    \"message\": \"Data yang di perlukan tidak lengkap, mohon periksa kembali.\"\n}"
+				}
+			]
+		}
+	]
+}

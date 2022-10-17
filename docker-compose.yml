@@ -1,0 +1,68 @@
+# Project Name  : BMG Code test
+# Services Name : Product Iventory
+# Maintainer    : Derandi Hermanda
+
+version: '3'
+
+volumes:
+  product_services_data: {}
+  code_src_data: {}
+
+networks:
+  product_services-net:
+      external: false
+
+services:
+  product_services_servcies:
+    container_name: "product_services_servcies"
+    build:
+      context: .
+      dockerfile: ./src/Config/Dockerfile
+    restart: on-failure
+    networks:
+      - product_services-net
+    volumes:
+      - code_src_data:/service/
+    depends_on:
+      - bmg_postgres_product_services
+#    deploy:
+#      replicas: 0
+#      mode: replicated
+    command: bash -c
+      "./wait-postgres.sh
+      && flask db init
+      && flask db migrate
+      && flask db upgrade
+      && /usr/local/bin/gunicorn --bind=0.0.0.0:5000 -w 3 --worker-class="egg:meinheld#gunicorn_worker" app:app --timeout 600 --capture-output --log-level debug"
+
+  bmg_postgres_product_services:
+    container_name: "bmg_postgres_product_services"
+    image: postgres:11-alpine
+    restart: on-failure
+    env_file: src/Config/db.env
+    ports:
+      - '7000:5432'
+    networks:
+      - product_services-net
+    volumes:
+      - product_services_data:/var/lib/postgresql/data
+  
+  bmg_reverseproxy_product_services:
+    container_name: "bmg_reverseproxy_product_services"
+    image: nginx:latest
+    volumes:
+      - ./src/Config/nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - product_services-net
+    depends_on:
+      - product_services_servcies
+    ports:
+      - '8000:5000'
+    restart: always
+  
+  bmg_redis_product_services:
+    container_name: "bmg_redis_product_services"
+    image: redis:alpine
+    restart: on-failure
+    networks:
+      - product_services-net
